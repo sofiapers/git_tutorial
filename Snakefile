@@ -154,7 +154,7 @@ rule align_to_genome:
             genome_id = config["genome_id"])
     shell:
         """
-        bowtie2 --very-sensitive-local -x results/bowtie2/{config[genome_id]} -U {input.fastq} > {output} 2>{log}
+        bowtie2 --trim5 5 --very-sensitive-local -x results/bowtie2/{config[genome_id]} -U {input.fastq} > {output} 2>{log}
 
         """
 
